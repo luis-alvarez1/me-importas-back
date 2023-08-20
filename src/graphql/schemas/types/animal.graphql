@@ -1,0 +1,41 @@
+type Animal {
+  _id: ID!
+  name: String!
+  type: String!
+  age: Int!
+}
+
+input CreateAnimal {
+  name: String!
+  type: String!
+  age: Int!
+}
+
+input UpdateAnimal {
+  _id: ID!
+  name: String
+  type: String
+  age: Int
+}
+
+input DeleteAnimal {
+  _id: ID!
+}
+
+input FilterAnimal {
+  _id: ID
+  name: String
+  type: String
+  age: Int
+}
+
+# requeridos por GQL
+type Query {
+  animals(filter: FilterAnimal): [Animal]!
+}
+
+type Mutation {
+  createAnimal(animal: CreateAnimal): Animal!
+  updateAnimal(animal: UpdateAnimal): Animal!
+  deleteAnimal(animal: DeleteAnimal): String!
+}
