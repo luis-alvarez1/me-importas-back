@@ -1,5 +1,5 @@
-import EnvModule from '../env/envModule';
 import mongoose from 'mongoose';
+import EnvModule from '../env/envModule';
 
 EnvModule.configEnv();
 

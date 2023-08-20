@@ -1,11 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import { graphqlHTTP } from 'express-graphql';
+import { buildSchema } from 'graphql';
 import EnvModule from './config/env/envModule';
 import DBConfig from './config/database/database';
 import types from './graphql/schemas';
 import resolvers from './graphql/grahql-resolvers';
-import { buildSchema } from 'graphql';
 
 EnvModule.configEnv();
 
@@ -24,10 +24,7 @@ app.use('/graphql', (req, res) =>
   })(req, res),
 );
 
-const PORT = process.env.PORT || 1500;
+const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () =>
-  console.log(
-    `SERVIDOR LISTO EN http://localhost:${PORT}/graphql`,
-  ),
-);
+// eslint-disable-next-line no-console
+app.listen(PORT, () => console.log(`SERVIDOR LISTO EN http://localhost:${PORT}/graphql`));

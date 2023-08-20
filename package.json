@@ -11,8 +11,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
+  },
   "dependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
     "@graphql-toolkit/file-loading": "^0.10.7",
     "@graphql-toolkit/schema-merging": "^0.10.7",
     "bcrypt": "^5.0.1",
@@ -23,10 +31,6 @@
     "graphql": "^15.5.1",
     "merge-graphql-schemas": "^1.7.8",
     "mongoose": "^5.13.2",
-    "@babel/cli": "^7.14.5",
-    "@babel/core": "^7.14.6",
-    "@babel/node": "^7.14.7",
-    "@babel/preset-env": "^7.14.7",
     "nodemon": "^2.0.10"
   }
 }
