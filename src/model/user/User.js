@@ -1,24 +1,28 @@
 import mongoose from 'mongoose';
 
-const Animal = new mongoose.Schema(
+const User = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
       trim: true,
     },
-
-    type: {
+    password: {
       type: String,
       required: true,
-      trim: true,
     },
-    age: {
-      type: Number,
+    mail: {
+      type: String,
       required: true,
+    },
+    document: {
+      type: String,
+      required: true,
+      min: 10,
+      max: 10,
     },
   },
   { timestamps: true },
 );
 
-export default mongoose.model('animal', Animal);
+export default mongoose.model('user', User);

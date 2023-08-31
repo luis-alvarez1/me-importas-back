@@ -24,11 +24,13 @@
     "@graphql-toolkit/file-loading": "^0.10.7",
     "@graphql-toolkit/schema-merging": "^0.10.7",
     "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.5.1",
+    "jsonwebtoken": "^9.0.2",
     "merge-graphql-schemas": "^1.7.8",
     "mongoose": "^5.13.2",
     "nodemon": "^2.0.10"

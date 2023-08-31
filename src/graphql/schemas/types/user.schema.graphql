@@ -1,0 +1,31 @@
+type User {
+  _id: ID!
+  name: String!
+  mail: String!
+  document: String!
+  password: String!
+}
+
+input CreateUserType {
+  name: String!
+  mail: String!
+  document: String!
+  password: String!
+}
+input LoginUserType {
+  mail: String!
+  password: String!
+}
+
+type LoginOutput {
+  token: String!
+}
+
+type Query {
+  users: [User]!
+}
+
+type Mutation {
+  login(user: LoginUserType): LoginOutput
+  createUser(user: CreateUserType): User
+}
