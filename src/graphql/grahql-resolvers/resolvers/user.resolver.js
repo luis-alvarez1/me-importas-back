@@ -53,6 +53,30 @@ const userResolver = {
       console.log(error);
     }
   },
+  updatePassword: async ({ user }) => {
+    try {
+      const userInfo = await User.findOne({ mail: user.mail, document: user.document });
+      if (!userInfo) {
+        throw new Error('Usuario non coincíde');
+      }
+
+      userInfo.password = '';
+      const salt = await bcryptjs.genSalt(10);
+      userInfo.password = await bcryptjs.hash(user.newPassword, salt);
+
+      await User.findOneAndUpdate(
+        {
+          mail: user.mail,
+          document: user.document,
+        },
+        userInfo,
+        { new: true },
+      );
+      return 'Constraseña actualizada';
+    } catch (error) {
+      console.log(error);
+    }
+  },
   updateUser: async ({ user }) => {
     try {
       const userExists = await User.findById(user._id);
@@ -62,14 +86,12 @@ const userResolver = {
       }
 
       const newUser = await User.findByIdAndUpdate(user._id, user, { new: true });
-      // const salt = await bcryptjs.genSalt(10);
-      // newUser.password = await bcryptjs.hash(newUser.password, salt);
+
       return newUser;
     } catch (error) {
       console.log(error);
     }
   },
-
   deleteUser: async ({ _id }) => {
     try {
       const userExists = await User.findById(_id);

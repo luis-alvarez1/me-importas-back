@@ -26,6 +26,12 @@ input LoginUserType {
   password: String!
 }
 
+input UpdatePasswordType {
+  mail: String!
+  document: String!
+  newPassword: String!
+}
+
 type LoginOutput {
   token: String!
 }
@@ -35,8 +41,9 @@ type Query {
 }
 
 type Mutation {
-  login(user: LoginUserType!): LoginOutput
-  createUser(user: CreateUserType!): User
-  updateUser(user: UpdateUserType!): User
-  deleteUser(_id: ID!): String
+  login(user: LoginUserType!): LoginOutput!
+  updatePassword(user: UpdatePasswordType!): String!
+  createUser(user: CreateUserType!): User!
+  updateUser(user: UpdateUserType!): User!
+  deleteUser(_id: ID!): String!
 }
