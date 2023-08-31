@@ -12,6 +12,15 @@ input CreateUserType {
   document: String!
   password: String!
 }
+
+input UpdateUserType {
+  _id: ID!
+  name: String
+  mail: String
+  document: String
+  password: String
+}
+
 input LoginUserType {
   mail: String!
   password: String!
@@ -26,6 +35,8 @@ type Query {
 }
 
 type Mutation {
-  login(user: LoginUserType): LoginOutput
-  createUser(user: CreateUserType): User
+  login(user: LoginUserType!): LoginOutput
+  createUser(user: CreateUserType!): User
+  updateUser(user: UpdateUserType!): User
+  deleteUser(_id: ID!): String
 }

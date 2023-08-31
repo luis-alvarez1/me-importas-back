@@ -53,6 +53,38 @@ const userResolver = {
       console.log(error);
     }
   },
+  updateUser: async ({ user }) => {
+    try {
+      const userExists = await User.findById(user._id);
+
+      if (!userExists) {
+        throw new Error('El usuario no existe');
+      }
+
+      const newUser = await User.findByIdAndUpdate(user._id, user, { new: true });
+      // const salt = await bcryptjs.genSalt(10);
+      // newUser.password = await bcryptjs.hash(newUser.password, salt);
+      return newUser;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  deleteUser: async ({ _id }) => {
+    try {
+      const userExists = await User.findById(_id);
+
+      if (!userExists) {
+        throw new Error('El usuario no existe');
+      }
+
+      await User.findByIdAndDelete(_id);
+
+      return 'Usuario Eliminado';
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
 
 export default userResolver;
