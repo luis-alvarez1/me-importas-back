@@ -1,0 +1,33 @@
+type Pendiente {
+    _id: ID!
+    user: User!
+    descripcion: String!
+    state: Boolean!
+}
+
+input CreatePendienteType {
+    user: ID!
+    descripcion: String!
+    state: Boolean
+}
+
+input UpdatePendienteType {
+    _id: ID!
+    user: ID!
+    descripcion: String
+    state: Boolean
+}
+
+input PendientesByUserInput {
+    _id: ID!
+}
+
+type Query {
+    pendientesByUser(user: PendientesByUserInput): [Pendiente]!
+}
+
+type Mutation {
+    createPendiente(pendiente: CreatePendienteType!): Pendiente!
+    updatePendiente(pendiente: UpdatePendienteType!): Pendiente!
+    deletePendiente(_id: ID!, user: ID!): String!
+}
