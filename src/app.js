@@ -26,5 +26,4 @@ app.use('/graphql', (req, res) =>
 
 const PORT = process.env.PORT || 3000;
 
-// eslint-disable-next-line no-console
 app.listen(PORT, () => console.log(`SERVIDOR LISTO EN http://localhost:${PORT}/graphql`));

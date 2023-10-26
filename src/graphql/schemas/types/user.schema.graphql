@@ -1,49 +1,50 @@
 type User {
-  _id: ID!
-  name: String!
-  mail: String!
-  document: String!
-  password: String!
+    _id: ID!
+    name: String!
+    mail: String!
+    document: String!
+    password: String!
 }
 
 input CreateUserType {
-  name: String!
-  mail: String!
-  document: String!
-  password: String!
+    name: String!
+    mail: String!
+    document: String!
+    password: String!
 }
 
 input UpdateUserType {
-  _id: ID!
-  name: String
-  mail: String
-  document: String
-  password: String
+    _id: ID!
+    name: String
+    mail: String
+    document: String
+    password: String
 }
 
 input LoginUserType {
-  mail: String!
-  password: String!
+    mail: String!
+    password: String!
 }
 
 input UpdatePasswordType {
-  mail: String!
-  document: String!
-  newPassword: String!
+    mail: String!
+    document: String!
+    newPassword: String!
 }
 
 type LoginOutput {
-  token: String!
+    token: String!
+    user: User!
 }
 
 type Query {
-  users: [User]!
+    users: [User]!
 }
 
 type Mutation {
-  login(user: LoginUserType!): LoginOutput!
-  updatePassword(user: UpdatePasswordType!): String!
-  createUser(user: CreateUserType!): User!
-  updateUser(user: UpdateUserType!): User!
-  deleteUser(_id: ID!): String!
+    login(user: LoginUserType!): LoginOutput!
+    updatePassword(user: UpdatePasswordType!): String!
+    createUser(user: CreateUserType!): User!
+    updateUser(user: UpdateUserType!): User!
+    deleteUser(_id: ID!): String!
 }
